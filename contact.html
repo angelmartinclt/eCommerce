@@ -15,8 +15,10 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-<!-- icon link-->
+<!-- icon link for contact-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!--icon link for website-->
+    <link rel="icon" type="image/png" href="icon.png">
     
 </head>
 
@@ -49,7 +51,7 @@
                 <input type="email" id="email" name="email" placeholder="* janedoe123@gmail.com" required>
 
                 <label for="phone"><i class="fa-solid fa-phone"></i> Phone number</label>
-                <input type="tel" id="phone" name="phone" placeholder="* 123-456-7890" required>
+                <input type="tel" id="phone" name="phone" placeholder="* 123-456-7890" required pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}$">
 
                 <label for="message">Comments</label>
                 <textarea id="message" name="message" rows="5" placeholder="Do you have feedback, want us to contact you or just have a comment? Let us know!"></textarea>

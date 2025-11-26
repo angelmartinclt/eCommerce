@@ -465,6 +465,11 @@ box-shadow: 0 16px 35px #f7dde2; }
         flex-direction: column;
         align-items: flex-start;
     }
+    .products-hero h2{
+        letter-spacing: 0.6rem;
+        font-size: 1.8rem;
+        text-align: center;
+    }
 
 }
 

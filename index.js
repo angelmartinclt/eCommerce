@@ -94,104 +94,96 @@ function setupFilters(){
 
 
 
-
 //cart counter
-function getCart(){
-    try{
+    function getCart(){ //return empty array if nothing is added 
         return JSON.parse(localStorage.getItem("cart")) || [];
-    } catch {
-        return [];
     }
-}
-function saveCart(cart){
-    localStorage.setItem("cart", JSON.stringify(cart));
-}
-//update cart on every page
-function updateCartCount(){
-    const cart = getCart();
-    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-    document.querySelectorAll(".cart-counter").forEach((el) => {
-        el.textContent = count; //update text to reflect user choices
-    });
-}
- 
-updateCartCount();
-function addToCart(product){
-    const cart = getCart();
-    const existing = cart.find(
-        (item) => item["product-name"] === product["product-name"]
-    );
+    function saveCart(cart){
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+    function updateCartCount (){
 
-    if (existing){
-        existing.quantity +=1;
-    } else{
-        cart.push({...product, quantity: 1});
+        const cart = getCart();
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.querySelectorAll(".cart-counter").forEach(counter => {
+            counter.textContent = totalItems; //update header cart 
+        });
     }
 
-    saveCart(cart);
-    updateCartCount();
-    alert(`${product["product-name"]} was added to your cart.`); //confirm it was added 
-}
-//show updated cart on html page
-function renderCartPage(){
-    const itemsContainer = document.getElementById("cart-items");
-    const totalElement = document.getElementById("cart-total");
+    function addToCart(product){
+        const cart = getCart();
+        const item = cart.find(i => i["product-name"] === product["product-name"]);
 
-    if (!itemsContainer || !totalElement) return; // make sure on the checkout page 
+        if (item){
+            item.quantity++;
+        } else{
+            cart.push({...product,quantity: 1});
+        }
 
-    const cart = getCart();
-    itemsContainer.innerHTML = "";
-
-    if(!cart.length){
-        itemsContainer.textContent = "Your cart is empty, go shop!"; //message to buy more things 
-        totalElement.textContent = "";
-        return;
+        saveCart(cart);
+        updateCartCount();
+        alert(`${product["product-name"]} was added to your cart.`);
     }
-    //adds price of cart 
-    let total = 0;
-    cart.forEach((item) =>{
-        const priceNumber = parseFloat(
-            item["product-price"].replace(/[^0-9.]/g,"") //make sure it is a number not string 
-        );
 
-        const lineTotal = priceNumber * item.quantity;
-        total += lineTotal;
+    function removeFromCart(name){
+        const cart = getCart().filter(item => item["product-name"] !==name);
+        saveCart(cart);
+        updateCartCount();
+        renderCartPage();
+    }
 
-        // create div to show what is in the cart 
-        const row = document.createElement("div");
-        row.className = "cart-row";
-        row.innerHTML = `
-        <img src= "${item["product-photo"]}" alt="${item["product-name"]}" class="cart-image">
-        <div class="cart-info">
+    function renderCartPage(){
+        const container = document.getElementById("cart-items");
+        const totalEl = document.getElementById("cart-total");
+
+        if (!container || !totalEl) return; // make sure user is on checkout page 
+
+        const cart = getCart();
+        container.innerHTML = "";
+
+        if (cart.length === 0){
+            container.textContent = "Your cart is empty, go shop!";
+            totalEl.textContent = "";
+            return;
+        }
+        let total = 0;
+
+        cart.forEach(item => {
+            const price = parseFloat(item["product-price"].replace(/[^0-9.]/g, ""));
+            const lineTotal = price * item.quantity;
+            total += lineTotal;
+
+            const row=document.createElement("div");
+            row.className = "cart-row";
+                // build html of what user added 
+            row.innerHTML = `
+            <img src="${item["product-photo"]}" class="cart-image" alt="">
+            <div class="cart-info">
             <h3>${item["product-name"]}</h3>
             <p>Quantity: ${item.quantity}</p>
             <p>Price: ${item["product-price"]}</p>
             <p>Subtotal: $${lineTotal.toFixed(2)}</p>
-            <button class="remove-item" type="button" aria-label="Remove ${item["product-name"]} from cart"> Remove</button>
-        </div>
-        `;
+            <button class="remove-item">Remove</button>
+            </div>
+            `;
+            row.querySelector(".remove-item").addEventListener("click", () =>{
+                removeFromCart(item["product-name"]);
+            });
+            container.appendChild(row);
 
-        row.querySelector(".remove-item").addEventListener("click", () =>{
-            removeFromCart(item["product-name"]);
         });
-
-        itemsContainer.appendChild(row);
-    });
-    totalElement.textContent = `Total: $${total.toFixed(2)}`;
-}
-function removeFromCart(name){
-    let cart =getCart();
-    cart = cart.filter((item) => item["product-name"] !== name);
-    saveCart(cart);
-    updateCartCount();
-    renderCartPage();
-}
+        totalEl.textContent = `Total: $${total.toFixed(2)}`;
+    }
 
 
 
 
 
-   // contact form 
+
+
+
+
+ // contact form 
    const form = document.getElementById("form");
    const popUp = document.getElementById("pop-up");
    const closePopUp = document.getElementById("close-pop-up");
@@ -204,10 +196,11 @@ function removeFromCart(name){
         let valid = true;
 
         requiredFields.forEach((field) => {
-            field.style.border = "4px solid #f7dde2";
             if(!field.value.trim()){
                 valid = false;
                 field.style.border = "4px solid #ff4d4d";
+            } else{
+                field.style.border = "4px solid #f7dde2";
             }
         });
 
