@@ -1,0 +1,500 @@
+/* All pages*/
+body{
+    background-color: #1f1f1f;
+    margin: 0;
+    padding: 0; 
+font-family: "Zalando", sans-serif;}
+
+main{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a, li{
+    text-decoration: none;
+    color: #1f1f1f;
+    font-size: 35px;
+    list-style: none; }
+
+.header-top{
+    background-color:#f7dde2;
+    font-size: 50px;
+    color: #1f1f1f;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-family: "Tangerine", cursive; }
+
+.header-bottom{
+    background-color: #399797;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-family: "tangerine", cursive; }
+
+h1, ul{
+    margin: 0;
+    padding: 0; }
+
+.universal-footer{
+    background-color:#399797;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 30px ;
+    font-family: "tangerine", cursive;;
+}
+
+
+
+
+
+/* Home page*/
+.hero{
+    position: relative;
+    min-height: 60vh;
+    overflow: hidden;
+    margin-top: 5rem; }
+
+.hero-video{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
+
+.hero-overlay{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color: #f7dde2;
+    z-index: 1;
+    letter-spacing: 0.15rem;
+    padding: 1rem;
+    font-size: 25px;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    font-family: "Tangerine", cursive; }
+.hero-title{
+    font-size: 4rem; }
+
+.hero-subtitle{
+    margin-top: 0.2rem;
+    font-size: 3rem; }
+.shop-button{
+    background-color:#399797;
+    border-radius: 10px;
+    font-size: 1.8rem;
+    text-decoration: none;
+    padding: 12px 32px;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    transition: .2s;
+}
+.brand-story{
+    background-color: #f7dde2;
+
+}
+
+.shop-button:hover{
+    background-color: #144d45;
+}
+.exclusive-section, .why-shop, .brand-story{
+    background-color: #f7dde2;
+    border-radius: 10px;
+    padding: 2rem;
+    font-family: "Zalando" sans-serif;
+    margin: 3rem auto;
+    max-width: 1100px;
+}
+
+.exclusive-section h2, .why-shop h2, .brand-story h2{
+    text-align: center;
+    margin-bottom: 1rem;
+    color:#399797;
+}
+
+.exclusive-section p, .why-shop p, .brand-story p{
+    color: #333;
+    text-align: center;
+}
+
+.why-grid{
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.why-grid article h3{
+    margin-bottom: 0.4rem;
+    color:#399797;
+    text-align: center;
+}
+.exclusive-carousel{
+    position: relative;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.carousel-images{
+    width: 320px;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.carousel-slide{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.carousel-slide.active{
+    display: block;
+}
+.carousel-button{
+    background-color:#399797;
+    border: none;
+    border-radius: 20px;
+    width: 38px;
+    height:38px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-middle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+.carousel-name{
+    font-family: "zalando", sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #399797;
+}
+
+
+/* Contact page */
+.contact-form{
+    background-color:#fff;
+    border-radius: 10px;
+    width: 75%;
+    padding: 20px;
+    text-align: left;
+    margin:40px auto;
+    max-width: 800px; }
+
+.contact-header{
+    text-align: center;
+    font-size: 30px;
+    color: #399797;
+    font-weight: 800; }
+
+#form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; }
+
+label{
+    font-size: 23px;
+    color: #399797; }
+
+input, textarea{
+    color: black; 
+border-radius: 6px;
+border: 4px solid #f7dde2;
+font-size: 16px;
+}
+
+button{
+    border-radius: 4px;
+    background-color: #399797;
+    color: antiquewhite;
+    height: 30px; }
+
+input:focus, textarea:focus{
+    border-color:gray;
+    outline: none;
+}
+
+.contact-subtitle{
+    text-align: center;
+    color: #399797;
+    font-size: 1.2rem;
+}
+
+#pop-up{
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    background-color: gray;
+}
+
+.pop-up-content{
+    background-color: #fff;
+    border-radius: 12px;
+    text-align: center;
+    font-family: "Zalando", sans-serif;
+}
+
+
+.pop-up-content button{
+    cursor: pointer;
+    margin-top: 1rem;
+}
+label i{
+    margin-right: 0.5rem;
+    color: #399797;
+}
+
+
+
+
+/* Products page */
+.product-image{
+    width: 200px;
+    height: 200px;
+    margin-top: 30px;
+    border-radius: 12px;
+    max-width: 220px; }
+
+.product-name{
+    font-size: 2rem;
+    font-family:"tangerine", cursive; }
+
+.product-price{
+    font-size: 2rem;
+    font-weight:bold;
+    font-family: "tangerine",sans-serif; }
+
+.product-description{
+    font-family: "Zalando", sans-serif;
+    line-height: 1.5rem;
+font-size: 1rem; }
+
+#products-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+    padding: 2.5rem;
+    gap: 5rem;
+    margin: 0 auto; 
+max-width: 1200px;}
+
+.product-card{
+    display: flex;
+    flex-direction: column;
+    background-color: #399797;
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    align-items: center;
+    color: #f7dde2;
+transition: transform 0.2s ease, box-shadow 0.2s ease; }
+
+.product-card:hover{
+    transform: translateY(-6px);
+box-shadow: 0 16px 35px #f7dde2; }
+
+.main-products{
+    padding: 2rem 2.5rem 4rem;
+}
+
+.products-hero h2{
+    letter-spacing: 0.8em;
+    color: #f7dde2;
+    font-size: 2.5rem;
+}
+
+.products-hero{
+    text-align: center;
+}
+
+.products-hero p{
+    color: #f7dde2;
+    font-size: 1.5rem;
+}
+
+.add-to-cart{
+   background-color:goldenrod;
+   border: none;
+   margin-top: 1rem;
+   cursor: pointer;
+   font-weight: 550;
+   color: #1f1f1f;
+}
+
+
+.add-to-cart:hover{
+    transform: translateY(-1px);
+    background-color: gold;
+}
+
+.products-filters{
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+    gap: 2rem;
+    font-family: "Zalando", sans-serif;
+    color: greenyellow;
+}
+.products-filters label{
+    margin-right: 0.5rem;
+}
+
+.products-filters select{
+    border-radius: 6px;
+    border: 2px solid #fff;
+}
+
+/* checkout page*/
+#cart{
+    background-color: #f7dde2;
+    font-size: 30px;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    border-radius: 12px;
+}
+.cart-row{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 0;
+}
+.cart-image{
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cart-info h3{
+    font-family: "tangerine", cursive;
+    font-size: 2rem;
+}
+
+.cart-info p{
+    margin:0.1rem 0;
+}
+
+.remove-item{
+    background-color: red;
+    border: none;
+    cursor: pointer;
+}
+
+.remove-item:hover{
+    background-color: rgb(250, 125, 125);
+    outline: none;
+}
+
+
+
+/* Mobile breakout */
+@media (max-width: 550px){
+    .header-top{
+        font-size: 2.5rem;
+        padding: 10px;
+    }
+    .header-bottom{
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 1.5rem;
+    }
+    a,li{
+        font-size: 1.5rem;
+    }
+    .hero{
+        margin-top: 0;
+        min-height: 60vh;
+    }
+    .hero-title{
+        font-size: 2.5rem;
+
+    }
+    .hero-subtitle{
+        font-size: 2rem;
+    }
+    .shop-button{
+        font-size: 1.2rem;
+        padding: 10px 20px;
+    }
+
+    .exclusive-section, .why-shop, .brand-story{
+        margin: 1.5rem 1rem;
+        padding: 1.5rem;
+    }
+    .why-grid{
+        grid-template-columns: 1fr;
+    }
+
+    #products-container{
+        grid-template-columns: 1fr;
+        padding: 1.5rem 1rem;
+    }
+
+    .contact-form{
+        width: 90%;
+        padding: 1.5rem;
+    }
+    #cart{
+        margin: 1.5rem 1rem;
+        padding: 1.5rem;
+    }
+    .cart-row{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+
+
+/* Tablet breakout*/
+@media (max-width: 950px){
+    .why-grid{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    #products-container{
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .hero-title{
+        font-size: 3.2rem;
+    }
+
+    .hero-subtitle{
+        font-size: 2.5rem;
+    }
+
+}
+
+
+/* Desktop breakout*/
+@media (max-width: 1260px){
+main{
+    padding:0 1.5rem;
+}
+    #products-container{
+        max-width: 1110px;
+    }
+}
